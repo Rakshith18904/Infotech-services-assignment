@@ -1,0 +1,258 @@
+ /* just putting a few colors here so I don’t keep copy-pasting hex codes */
+        :root {
+            --main-red: #E94C5F; 
+            --light-pink: #FEE7ED;
+            --text-dark: #222;
+            --text-gray: #555;
+        }
+
+        /* base setup */
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: #fff; /* sticking with white bg */
+            color: var(--text-dark);
+        }
+        h1, h2, h3, h4, p { margin:0; padding:0; }
+
+        /* nav bar at the very top */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 70px;  /* this feels like a good balance */
+            background: white;
+            box-shadow: 0 1px 12px rgba(0,0,0,0.08); /* subtle shadow */
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            color: var(--main-red);
+        }
+        .logo img {
+            width: 55px;
+            margin-right: 8px;
+        }
+        .company-name {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: black;
+            margin: 0;
+        }
+        .tagline {
+            font-size: 15px;
+            margin-top: -4px; /* pulls tagline up closer to name */
+            color: #333;
+        }
+
+        /* nav links */
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 22px;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+        .nav-links a:hover {
+            color: var(--main-red);
+        }
+
+        .get-quote-btn {
+            background: rgb(225,40,40);
+            color: #fff;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 50px; /* making it look like a pill */
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+
+        /* main hero section (big banner) */
+        .hero-section {
+            display: flex;
+            min-height: 550px;
+            background: white;
+            position: relative;
+        }
+
+        /* pink background chunk on left side */
+        .hero-section::before {
+            content:"";
+            position: absolute;
+            top:0; left:0;
+            width: 60%;
+            height: 100%;
+            background: var(--light-pink);
+            z-index:0;
+        }
+
+        .hero-content {
+            width: 60%;
+            
+            
+            padding: 88px 50px;
+            position: relative;
+            z-index:1;
+        }
+        .hero-content h1 {
+            font-size: 3em;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+        .highlight { color: var(--main-red); }
+        .hero-content p {
+            font-size: 1.05em;
+            color: var(--text-gray);
+            max-width: 550px;
+            margin-bottom: 35px;
+        }
+        .cta-buttons button {
+            padding: 12px 24px;
+            margin-right: 12px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+        .resume-packages-btn {
+            background: #fff;
+            border: 1px solid var(--main-red);
+            color: var(--main-red);
+            box-shadow: 0 3px 10px rgba(238,101,101,0.4); /* red shadow looks nice */
+        }
+        .contact-us-btn {
+            background: var(--main-red);
+            color: #fff;
+            border: 1px solid var(--main-red);
+            box-shadow: 0 3px 10px rgba(238,101,101,0.4);
+        }
+
+        /* the right side (girl image + floating boxes) */
+        .hero-image-and-stats {
+            width: 79%;
+            position: relative;
+            z-index: 1;
+        }
+        .image-container {
+            position: absolute;
+            top:0; left:-160px;
+            width:118%;
+            height:100%;
+            background: var(--light-pink); /* fallback bg */
+            clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+            overflow:hidden; /* so the image doesn’t bleed */
+        }
+        .image-container img {
+            display:block;
+            margin-left: 400px;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* floating rating box */
+        .rating-box {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            width:300px;
+            
+            background: white;
+            padding: 1px 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        .rating-number {
+            font-size: 2em;
+            font-weight: 800;
+        }
+        .stars { color: gold; }
+        .rating-label {
+            font-size: 0.8em;
+            color:#666;
+        }
+        .subpics{
+            height: 70px;
+        width:50px;        }
+
+        /* floating resume count box */
+        .resumes-created-box {
+            position: absolute;
+            right: 40px;
+            bottom: 50px;
+            background: white;
+            padding: 18px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        .red-hat-icon {
+            position: absolute;
+            top: -20px;
+            right: 15px;
+            background: white;
+            border-radius: 50%;
+            padding: 6px;
+            color: var(--main-red);
+            font-size: 32px;
+        }
+        .resumes-created-box .count {
+            font-size: 1.8em;
+            font-weight: 800;
+        }
+        .resumes-created-box .label {
+            font-size: 0.85em;
+            color:#666;
+        }
+
+        /* features section below hero */
+        .features-section {
+            padding: 80px;
+            text-align: center;
+        }
+        .section-title-small {
+            background: var(--main-red);
+            color: black;
+            font-size: 1em;
+            padding: 6px 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display:inline-block;
+        }
+        .section-title-large {
+            font-size: 2em;
+            margin-bottom: 50px;
+        }
+        .features-grid {
+            display:grid;
+            grid-template-columns: repeat(4,1fr);
+            gap:30px;
+        }
+        .feature-card {
+            background:#fff;
+            padding:30px 15px;
+            border-radius:15px;
+            height:390px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .feature-card img {
+            height: 150px;
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        .feature-card h4 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        .feature-card p {
+            font-size: 0.9em;
+            color: var(--text-gray);
+        }
+
+        /* NOTE: should add responsive media queries later so this doesn’t break on phones */
